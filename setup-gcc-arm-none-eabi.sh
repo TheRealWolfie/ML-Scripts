@@ -2,9 +2,9 @@
 
 echo -e
 
-VER=${VER:-'10.3.1-2.1'}
-URL=https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v$VER/xpack-arm-none-eabi-gcc-$VER-linux-x64.tar.gz
-
+VER=${VER:-'7.3.1-1.2'}
+#URL=https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v$VER/xpack-arm-none-eabi-gcc-$VER-linux-x64.tar.gz
+URL=https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v7.3.1-1.2/xpack-arm-none-eabi-gcc-7.3.1-1.2-linux-x64.tgz
 if [ -d tmp ]; then
   rm -r tmp
 fi
@@ -15,15 +15,17 @@ echo "Creating gcc-arm-none-eabi x86_64 debian package"
 echo "version: $VER"
 echo
 
-echo "Downloading..."
-curl -fSL -A "Mozilla/4.0" -o tmp/gcc-arm-none-eabi.tar "$URL"
-echo
-echo "Extracting..."
-echo
+if [ ! -f  tmp/gcc-arm-none-eabi.tar ]; then
+  echo "Downloading..."
+  curl -fSL -A "Mozilla/4.0" -o tmp/gcc-arm-none-eabi.tar "$URL"
+  echo
+  echo "Extracting..."
+  echo
 
-cd tmp
-tar -xf gcc-arm-none-eabi.tar
+  cd tmp
+  tar -xf gcc-arm-none-eabi.tar
 
+fi
 echo "Generating debian package..."
 echo
 
@@ -60,4 +62,4 @@ echo
 echo "Cleaning up temp folder.."
 echo
 cd ..
-rm -r tmp
+#rm -r tmp
