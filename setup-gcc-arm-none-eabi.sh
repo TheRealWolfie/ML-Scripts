@@ -42,11 +42,11 @@ mv xpack-arm-none-eabi-gcc-10.3.1-2.1/* gcc-arm-none-eabi/usr/
 echo "Building .deb package..."
 echo
 dpkg-deb --build --root-owner-group gcc-arm-none-eabi
-mv *.deb ../
+#mv *.deb ../
 echo
 
-#echo "Installing..."
-#sudo apt install ./gcc-arm-none-eabi.deb -y --allow-downgrades
+echo "Installing..."
+sudo apt install ./gcc-arm-none-eabi.deb -y --allow-downgrades
 echo
 
 echo "Done."
