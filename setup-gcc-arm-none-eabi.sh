@@ -2,8 +2,8 @@
 
 echo -e
 
-VER=${VER:-'10.3-2021.10'}
-URL=https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v10.3.1-2.1/xpack-arm-none-eabi-gcc-10.3.1-2.1-linux-x64.tar.gz
+VER=${VER:-'10.3.1-2.1'}
+URL=https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v$VER/xpack-arm-none-eabi-gcc-$VER-linux-x64.tar.gz
 
 if [ -d tmp ]; then
   rm -r tmp
