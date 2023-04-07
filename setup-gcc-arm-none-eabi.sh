@@ -45,6 +45,11 @@ dpkg-deb --build --root-owner-group gcc-arm-none-eabi
 #mv *.deb ../
 echo
 
+echo "Fixing possible APT issues.."
+sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
+sudo chmod -Rv 700 /var/cache/apt/archives/partial/
+echo
+
 echo "Installing..."
 sudo apt install ./gcc-arm-none-eabi.deb -y --allow-downgrades
 echo
